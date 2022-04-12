@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include("./partials/header") %> 
+<%- include("./partials/navbar") %>
+
+<!-- Content section -->
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <h1><%= post.title %></h1>
+          <p><%= post.content %></p>
+      </div>
+  </div>
+</div>
+
+<!-- Script section -->
+<% var titleName = title %>
+<% var pathName = path %> 
+<script>
+  const pageTitle = "<%= titleName %>";
+  const pagePath = "<%= pathName %>";
+  document.title = pageTitle;
+  document.getElementById("page-" + pagePath).setAttribute("class", "nav-link active");
+</script>
+
+<%- include("./partials/footer") %>
